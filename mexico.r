@@ -42,15 +42,16 @@ c1 <- ggplot() +
   geom_polygon(data = Mexico, aes(x=long, y=lat, group=group)) +
   coord_fixed(1) + 
   geom_point(data=mexico_city, mapping = aes(x=longitude, y=latitude, fill=where_coordinates), size=4, color="green") +
-  geom_point(data=year_2010, mapping = aes(x=longitude, y=latitude, color=), color='white') + 
+  geom_point(data=year_2010, mapping = aes(x=longitude, y=latitude, color=), color='orange', alpha=.5) + 
   xlab("Longitude") + ylab("Latitude") +
   ggtitle("Violence in Mexico in 2010") +
-  theme(legend.title = element_blank())
+  theme(legend.title = element_blank()) +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank())
 c1
 
 d <- ggplot()+
   geom_bar(data = year_2010, mapping=aes(x=adm_1, fill=adm_1), na.rm=F)+
   coord_flip()+
   ggtitle("Occurrences of violence per state in 2010") + xlab("Count") + ylab("State") +
-  scale_fill_discrete(name="State")
+  scale_fill_discrete(name="State") 
 d
